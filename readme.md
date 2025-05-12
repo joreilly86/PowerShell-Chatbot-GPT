@@ -48,6 +48,12 @@ This chatbot is a simple yet powerful tool designed to assist visually impaired 
 - **Internet Dependency**: Requires an active internet connection.
 - **Clipboard Functionality**: Ensure `pyperclip` is installed and supported on your system for clipboard copying.
 
+## Supported Models 🤖
+
+- **GPT-4o**: OpenAI's flagship model, known for its comprehensive language understanding and response generation.
+- **Gemini**: Google's cutting-edge model, offering advanced capabilities in various tasks.
+- **Perplexity**: A powerful model focused on providing accurate and concise answers to complex questions.
+
 ## Conclusion 🎉
 
-This chatbot serves as an invaluable resource for visually impaired professionals, streamlining information access and fostering independent, efficient working methods. While this example is tailored for civil engineering, the model can be easily customized for various professional needs.
+This chatbot serves as a resource for visually impaired professionals, streamlining information access and fostering independent, efficient working methods. While this example is tailored for civil engineering, the model can be easily customized for various professional needs.

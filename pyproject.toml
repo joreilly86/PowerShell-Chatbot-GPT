@@ -5,7 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "openai>=1.60.2",
+    "google-generativeai>=0.8.5",
+    "openai>=1.78.1",
     "pyinstaller>=6.11.1",
     "pyperclip>=1.9.0",
     "python-dotenv>=1.0.1",

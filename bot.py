@@ -1,26 +1,25 @@
 import os
 
-import pyperclip  # For clipboard support
+import pyperclip
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# Load environment variables from a .env file
+# Load environment variables
 load_dotenv()
 
-# Retrieve the OpenAI API key from the environment
+model_name = os.getenv("OPENAI_MODEL", "gpt-4o")
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("OPENAI_API_KEY is not set. Please add it to your .env file.")
 
-# Instantiate the OpenAI client
 client = OpenAI(api_key=api_key)
 
 
 def run_chatbot():
-    """Runs the chatbot with streaming responses."""
+    """Runs the chatbot with responses optimized for screen reader accessibility."""
     print("Chatbot is ready. Type 'exit' or 'quit' to end the session.\n")
+    print(f"Hello, I am {model_name}. How can I help you today?\n")
 
-    # Define custom instructions for the bot
     messages = [
         {
             "role": "system",
@@ -34,40 +33,38 @@ def run_chatbot():
     ]
 
     while True:
-        user_input = input("You: ")
+        try:
+            user_input = input("You: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\nGoodbye!")
+            break
+
         if user_input.lower() in ["exit", "quit"]:
             print("Goodbye!")
             break
 
-        # Add the user's input to the conversation history
         messages.append({"role": "user", "content": user_input})
 
         try:
-            # Stream responses from OpenAI
-            stream = client.chat.completions.create(
-                model="gpt-4o",  # Default to "gpt-4o" or "gpt-4"
+            response = client.chat.completions.create(
+                model=model_name,
                 messages=messages,
-                stream=True,  # Enable streaming for real-time responses
+                stream=False,
             )
-            print("AI: ", end="", flush=True)
-            response_content = ""
+            response_content = response.choices[0].message.content.strip()
 
-            for chunk in stream:
-                content = chunk.choices[0].delta.content
-                if content:
-                    print(content, end="", flush=True)
-                    response_content += content
+            # Screen reader-friendly output
+            print("\nAI Response:\n")
+            print(response_content)
+            print()  # Extra newline for clarity
 
-            print()  # Add a newline after the full response
-
-            # Add the assistant's response to the conversation history
-            messages.append({"role": "assistant", "content": response_content})
-
-            # Copy the response to the clipboard
+            # Copy to clipboard
             pyperclip.copy(response_content)
 
+            messages.append({"role": "assistant", "content": response_content})
+
         except Exception as e:
-            print(f"An error occurred: {e}. Please check your API key or connection.")
+            print(f"\n[Error] {e}\n")
 
 
 if __name__ == "__main__":
