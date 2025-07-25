@@ -1,5 +1,5 @@
 [project]
-name = "powershell-chatbot-gpt-3-5-turbo"
+name = "powershell-chatbot"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -11,3 +11,6 @@ dependencies = [
     "pyperclip>=1.9.0",
     "python-dotenv>=1.0.1",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
