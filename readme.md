@@ -1,8 +1,14 @@
-# PowerShell-Chatbot-GPT: A User-Friendly AI Chat Suite
+# PowerShell-AI-Chatbot: A User-Friendly AI Chat Suite
 
 ## 1. Introduction for the User
 
 Welcome! This is a collection of simple, powerful chatbots designed to be easy to use. Think of it as having several expert assistants ready to answer your questions directly from your computer.
+
+This project is designed for vision impaired users and features a simpified command line UI, streamlined to allow for real work.
+
+For more engineering tools, check out the [**Flocode Newsletter**](https://flocode.substack.com/). 
+
+James 🌊
 
 **What Can It Do?**
 -   **Answer Questions:** Ask anything from simple questions to complex technical queries.
