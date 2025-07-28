@@ -75,7 +75,7 @@ When you are finished with your chat, you can simply type `exit` or `quit` and p
 
 ---
 
-## 3. First-Time Setup Guide (For the Technical Assistant)
+## 3. First-Time Setup Guide
 
 This section explains how to install the project on a new computer.
 
