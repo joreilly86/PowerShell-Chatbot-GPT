@@ -43,7 +43,7 @@ class BaseChatbot:
         
         while True:
             try:
-                print("You (Type a message, or type 'PASTE' to enter multi-line mode):")
+                print("You:")
                 first_line = sys.stdin.readline().strip()
 
                 if first_line.lower() in ["exit", "quit"]:

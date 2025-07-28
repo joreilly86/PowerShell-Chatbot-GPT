@@ -107,3 +107,6 @@ Desktop.ini
 
 # PyCharm
 .idea/
+
+# Project specific
+GEMINI.md

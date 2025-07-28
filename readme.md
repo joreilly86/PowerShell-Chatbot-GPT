@@ -41,8 +41,7 @@ You have two ways to ask a question: a simple one for quick chats, and a special
 
 **Method 1: Simple Chat (For single lines)**
 
-1.  When the chatbot is ready, it will say:
-    `You (Type a message, or type 'PASTE' to enter multi-line mode):`
+1.  When the chatbot is ready, it will show: `You:`
 2.  Simply type your question and press **`Enter`**.
 
 This is best for quick questions or commands.
@@ -92,14 +91,9 @@ The following software must be installed on the system first.
     git clone <your-github-repository-url>
     cd PowerShell-Chatbot-GPT
     ```
-2.  **Create and activate a virtual environment:** This creates a self-contained space for the project's dependencies.
+2.  **Install dependencies:** This command reads the `pyproject.toml` file and creates a virtual environment with everything needed.
     ```bash
-    uv venv
-    .\.venv\Scripts\activate
-    ```
-3.  **Install dependencies:** This command reads the `pyproject.toml` file and installs everything needed.
-    ```bash
-    uv pip install .
+    uv sync
     ```
 
 ### Step C: API Key Configuration
